@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+<link rel="icon" href="{{ URL::asset('favicon.png') }}">
 
 <title>Prueba woobsing</title>
 
@@ -15,7 +15,7 @@
 <link href="jumbotron.css" rel="stylesheet">
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5ZvuisFk864xhJW9n-vP0KVmCORC4eQo&callback=initMap&libraries=&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('APP_GOOGLE_MAPS') }}&callback=initMap&libraries=&v=weekly" defer></script>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/index.css') }}" />
 <script src="{{ URL::asset('assets/js/index.js') }}"></script>
 

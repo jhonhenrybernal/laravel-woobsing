@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Validator;
 use App\Models\WeatherHumidityHistory;
+use Illuminate\Pagination\Paginator;
 
 /**
  * @author Jhon Bernal
@@ -75,7 +76,7 @@ class WeatherHumidityController extends Controller
      * @return Se está devolviendo la vista con todo el historial
      */
     public function history(){
-        $weatherHumidityHistory = WeatherHumidityHistory::all();
+        $weatherHumidityHistory = WeatherHumidityHistory::paginate(5);
         return view('pages.history',compact('weatherHumidityHistory'));
     }
 }

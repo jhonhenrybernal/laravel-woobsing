@@ -2,11 +2,10 @@
 @section('content')
 
     <main role="main">
-        <div class="jumbotron">
             <div class="container">
-            <div class="table-responsive">
+            <div class="table table-responsive table-bordered">
                     <table class="table">
-                        <caption>List of users</caption>
+                        <caption>Historial</caption>
                         <thead>
                             <tr>
                             <th scope="col">#</th>
@@ -30,6 +29,7 @@
                             @endforeach
                         </tbody>
                         </table>
+                        {!! $weatherHumidityHistory->links('pagination::bootstrap-4') !!}
                     </div>
             </div>
         </div>

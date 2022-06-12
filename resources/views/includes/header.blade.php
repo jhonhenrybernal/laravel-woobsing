@@ -6,10 +6,10 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item {{ Route::is('index') ? 'active' : '' }}">
                     <a class="nav-link" href="{{url('/')}}">Consultar <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Route::is('history-moisture') ? 'active' : '' }}">
                     <a class="nav-link" href="{{url('/history-moisture')}}">Historial</a>
                 </li>
             </ul>

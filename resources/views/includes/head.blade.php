@@ -14,7 +14,7 @@
 <!-- Custom styles for this template -->
 <link href="jumbotron.css" rel="stylesheet">
 
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5ZvuisFk864xhJW9n-vP0KVmCORC4eQo&callback=initMap&libraries=&v=weekly" defer></script>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/index.css') }}" />
 <script src="{{ URL::asset('assets/js/index.js') }}"></script>

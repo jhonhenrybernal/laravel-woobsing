@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Validator;
+use App\Models\WeatherHumidityHistory;
 
 /**
  * @author Jhon Bernal
@@ -22,7 +23,7 @@ class WeatherHumidityController extends Controller
         $lon = '-95.712891';
         $humidity ='';
         $code = '';
-        return view('welcome',compact('la','lon','humidity','code'));
+        return view('consult',compact('la','lon','humidity','code'));
     }
 
    /**
@@ -55,8 +56,26 @@ class WeatherHumidityController extends Controller
         $lon = $aCities['lo'];
         $code = $aCities['code'];
         $responseCoordinates = Http::get('https://api.openweathermap.org/data/2.5/weather?lat='.$la.'&lon='.$lon.'&appid=58f28a178278752497232426569b1d97');
-        $resultWeather = json_decode($responseCoordinates->getBody()); 
+        $resultWeather = json_decode($responseCoordinates->getBody());
         $humidity = $resultWeather->main->humidity;
-        return view('welcome',compact('la','lon','humidity','code'));
+
+        $weatherHumidityHistory = WeatherHumidityHistory::create([
+            'name' => $code,
+            'url' => 'https://openweathermap.org/city/'.$resultWeather->id,
+            'humidity' => $humidity
+        ]);
+        return view('consult',compact('la','lon','humidity','code'));
+    }
+
+  /**
+     * Devuelve una vista llamada historial, que es una plantilla de hoja, y le pasa la variable
+     * weatherHumidityHistory, que es una colección de todos los registros en WeatherHumidityHistory
+     * mesa
+     *
+     * @return Se está devolviendo la vista con todo el historial
+     */
+    public function history(){
+        $weatherHumidityHistory = WeatherHumidityHistory::all();
+        return view('history',compact('weatherHumidityHistory'));
     }
 }

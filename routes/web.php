@@ -17,3 +17,4 @@ use App\Http\Controllers\WeatherHumidityController;
 Route::get('/', [WeatherHumidityController::class, 'index']);
 
 Route::post('/locate-moisture', [WeatherHumidityController::class, 'locateMoisture']);
+Route::get('/history-moisture', [WeatherHumidityController::class, 'history']);

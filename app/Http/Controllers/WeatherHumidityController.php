@@ -23,7 +23,7 @@ class WeatherHumidityController extends Controller
         $lon = '-95.712891';
         $humidity ='';
         $code = '';
-        return view('consult',compact('la','lon','humidity','code'));
+        return view('pages.consult',compact('la','lon','humidity','code'));
     }
 
    /**
@@ -64,7 +64,7 @@ class WeatherHumidityController extends Controller
             'url' => 'https://openweathermap.org/city/'.$resultWeather->id,
             'humidity' => $humidity
         ]);
-        return view('consult',compact('la','lon','humidity','code'));
+        return view('pages.consult',compact('la','lon','humidity','code'));
     }
 
   /**
@@ -76,6 +76,6 @@ class WeatherHumidityController extends Controller
      */
     public function history(){
         $weatherHumidityHistory = WeatherHumidityHistory::all();
-        return view('history',compact('weatherHumidityHistory'));
+        return view('pages.history',compact('weatherHumidityHistory'));
     }
 }
